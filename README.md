@@ -1,4 +1,4 @@
-##Simple TicTacToe AI
+## Simple TicTacToe AI
 
 ```cpp
 #include <vector>
