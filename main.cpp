@@ -119,7 +119,7 @@ void simpleComputer(std::vector < char > &board) {
 }
 
 void run() {
-    std::vector < char > board {1
+    std::vector < char > board {
         '1', '2', '3',
         '4', '5', '6',
         '7', '8', '9'
