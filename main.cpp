@@ -12,7 +12,7 @@ void greet() {
     std::cout << std::setw(31) << "Player 1 [X]\tCPU [O]" << std::endl;
 }
 
-void printBoard(const std::vector < char > &board) {
+void printBoard(const std::vector<char> &board) {
     std::cout << std::endl;
     std::cout << std::setw(15) << board[0] << "  |  " << board[1] << "  |  " << board[2] << std::endl;
     std::cout << std::setw(29) << "-----+-----+-----" << std::endl;
@@ -22,59 +22,59 @@ void printBoard(const std::vector < char > &board) {
     std::cout << std::endl;
 }
 
-bool gameOver(const std::vector < char > &board) {
-	// check horizontal rows
-	if (board[0] == board[1] && board[1] == board[2] ||
-		board[3] == board[4] && board[4] == board[5] ||
-		board[6] == board[7] && board[7] == board[8])
-		return false;
+bool gameOver(const std::vector<char> &board) {
+    // check horizontal rows
+    if (board[0] == board[1] && board[1] == board[2] ||
+        board[3] == board[4] && board[4] == board[5] ||
+        board[6] == board[7] && board[7] == board[8])
+        return false;
 
-	// check vertical rows
-	if (board[0] == board[3] && board[3] == board[6] ||
-		board[1] == board[4] && board[4] == board[7] ||
-		board[2] == board[5] && board[5] == board[8])
-		return false;
+    // check vertical rows
+    if (board[0] == board[3] && board[3] == board[6] ||
+        board[1] == board[4] && board[4] == board[7] ||
+        board[2] == board[5] && board[5] == board[8])
+        return false;
 
-	// check diagonals
-	if (board[0] == board[4] && board[4] == board[8] ||
-		board[2] == board[4] && board[4] == board[6])
-		return false;
+    // check diagonals
+    if (board[0] == board[4] && board[4] == board[8] ||
+        board[2] == board[4] && board[4] == board[6])
+        return false;
 
-	return true;
+    return true;
 }
 
-char whoWon(const std::vector < char > &board) {
-	// check horizontal rows
-	if (board[0] == board[1] && board[1] == board[2])
+char whoWon(const std::vector<char> &board) {
+    // check horizontal rows
+    if (board[0] == board[1] && board[1] == board[2])
         return board[0];
 
-	if (board[3] == board[4] && board[4] == board[5])
+    if (board[3] == board[4] && board[4] == board[5])
         return board[3];
 
-	if (board[6] == board[7] && board[7] == board[8])
-		return board[6];
+    if (board[6] == board[7] && board[7] == board[8])
+        return board[6];
 
     // check vertical columns
-	if (board[0] == board[3] && board[3] == board[6])
+    if (board[0] == board[3] && board[3] == board[6])
         return board[0];
 
-	if (board[1] == board[4] && board[4] == board[7])
+    if (board[1] == board[4] && board[4] == board[7])
         return board[1];
 
-	if (board[2] == board[5] && board[5] == board[8])
-		return board[2];
+    if (board[2] == board[5] && board[5] == board[8])
+        return board[2];
 
-	// check diagonals
-	if (board[0] == board[4] && board[4] == board[8])
+    // check diagonals
+    if (board[0] == board[4] && board[4] == board[8])
         return board[0];
 
-	if (board[2] == board[4] && board[4] == board[6])
-		return board[2];
+    if (board[2] == board[4] && board[4] == board[6])
+        return board[2];
 
     return ' ';
 }
 
-void userTurn(std::vector < char > &board) {
+void userTurn(std::vector<char> &board) {
     Turn:
     std::cout << "Player 1 [X] Turn: ";
     int position{};
@@ -93,13 +93,13 @@ void userTurn(std::vector < char > &board) {
     board[position - 1] = 'X';
 }
 
-bool isValidPlacement(const std::vector < char > &board, const int &position) {
+bool isValidPlacement(const std::vector<char> &board, const int &position) {
     if (board[position - 1] != 'X' && board[position - 1] != 'O')
         return true;
     return false;
 }
 
-bool draw(const std::vector < char > &board) {
+bool draw(const std::vector<char> &board) {
     for (int i = 0; i < 9; i++) {
         if (board.at(i) == ' ') {
             return true;
@@ -108,7 +108,7 @@ bool draw(const std::vector < char > &board) {
     return false;
 }
 
-void simpleComputer(std::vector < char > &board) {
+void simpleComputer(std::vector<char> &board) {
     Compute:
     int random = dist(mt);
     if (isValidPlacement(board, random))
@@ -118,7 +118,7 @@ void simpleComputer(std::vector < char > &board) {
 }
 
 int main() {
-    std::vector < char > board {
+    std::vector<char> board{
             '1', '2', '3',
             '4', '5', '6',
             '7', '8', '9'
@@ -143,7 +143,7 @@ int main() {
 
     if (whoWon(board) == 'X') {
         std::cout << "Player 1 [X] Won the Game!";
-    } else if (whoWon(board) == 'O' ) {
+    } else if (whoWon(board) == 'O') {
         std::cout << "CPU [O] Won the Game!";
     } else if (!draw(board)) {
         std::cout << "Game Draw!";
