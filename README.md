@@ -1,5 +1,9 @@
 ## Simple TicTacToe AI
 
+#### To do
+* Add difficulty level (use minmax algorithm for cpu)
+
+### Code:
 ```cpp
 // imported header files
 #include <vector>
