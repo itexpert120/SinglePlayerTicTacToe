@@ -1,6 +1,6 @@
 ## Simple TicTacToe AI
 
-#### To do
+### To do
 * Add difficulty level (use minmax algorithm for cpu)
 
 ### Code:
